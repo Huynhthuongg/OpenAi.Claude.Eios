@@ -1,5 +1,4 @@
 import { Search, Bell, Command, Menu } from "lucide-react";
-import { EiosOrb } from "@/components/EiosOrb";
 import { useState } from "react";
 
 export function Header({
@@ -25,7 +24,7 @@ export function Header({
         <div className="flex items-center gap-2 px-2.5 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-md shrink-0">
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
           <span className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider">
-            Sản xuất
+            Live
           </span>
         </div>
       </div>
@@ -39,7 +38,7 @@ export function Header({
         >
           <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
           <span className="text-muted-foreground/80 truncate">
-            Tìm agent, phiên thực thi...
+            Search...
           </span>
           <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-0.5 text-muted-foreground/60">
             <Command className="h-3 w-3" />
@@ -50,7 +49,7 @@ export function Header({
         <button
           onClick={() => onOpenPalette?.()}
           className="md:hidden p-2 rounded-md hover:bg-muted/70 text-muted-foreground transition-colors"
-          aria-label="Tìm kiếm"
+          aria-label="Search"
         >
           <Search className="h-4 w-4" />
         </button>
@@ -59,26 +58,26 @@ export function Header({
           <button
             onClick={() => setNotifOpen(!notifOpen)}
             className="relative p-2 rounded-md hover:bg-muted/70 transition-colors group"
-            aria-label="Thông báo"
+            aria-label="Notifications"
           >
             <Bell className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors" />
             <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-primary rounded-full border-2 border-background shadow-[0_0_6px_rgba(8,200,232,0.7)]" />
           </button>
           {notifOpen && (
-            <div className="absolute right-0 top-full mt-2 w-80 bg-popover border border-border rounded-lg shadow-xl shadow-black/30 z-50 overflow-x-auto">
+            <div className="absolute right-0 top-full mt-2 w-80 bg-popover border border-border rounded-lg shadow-xl shadow-black/30 z-50">
               <div className="px-4 py-3 border-b border-border flex items-center justify-between">
-                <span className="text-sm font-semibold">Thông báo</span>
-                <span className="text-[10px] text-primary font-medium cursor-pointer hover:underline">Đánh dấu đã đọc</span>
+                <span className="text-sm font-semibold">Notifications</span>
+                <span className="text-[10px] text-primary font-medium cursor-pointer hover:underline">
+                  Mark as read
+                </span>
               </div>
-              <div className="max-h-72 overflow-y-auto">
-                {[
-                  { icon: "🔴", title: "Agent Security Scanner", msg: "Phát hiện lỗ hổng nghiêm trọng trong deps", time: "2 phút trước" },
-                  { icon: "🟡", title: "Eios", msg: "Đang chờ phê duyệt: DROP TABLE sessions", time: "5 phút trước" },
-                  { icon: "🟢", title: "K8s Manifest Linter", msg: "8.910 lượt chạy thành công hôm nay", time: "10 phút trước" },
-                ].map((n, i) => (
-                  <div key={i} className="px-4 py-3 hover:bg-muted/40 cursor-pointer border-b border-border/50 last:border-0 transition-colors">
-                    <div className="flex items-start gap-2.5">
-                      <span className="text-base shrink-0 mt-0.5">{n.icon}</span>
-                      <div className="min-w,0 flex-1">
-                        <p className="text-xs font-semibold truncate">{n.title}</p>
-                        <p className="text-[11px] text-muted-fore`
+              <div className="max-h-72 overflow-y-auto p-4">
+                <p className="text-xs text-muted-foreground">No new notifications</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </header>
+  );
+}
