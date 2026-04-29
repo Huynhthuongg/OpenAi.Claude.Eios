@@ -5,14 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -pBbvite build",
+    "build": "tsc -p . && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
     "@tanstack/react-query": "catalog:",
-    "class-variance-authorizy": "catalog:",
+    "@vercel/analytics": "^2.0.1",
+    "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "date-fns": "^4.1.0",
     "framer-motion": "catalog:",
