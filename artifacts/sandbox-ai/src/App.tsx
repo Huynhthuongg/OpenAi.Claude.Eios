@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { AppLayout } from './components/layout/AppLayout';
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         </div>
       </AppLayout>
       <Analytics />
+      <SpeedInsights />
     </>
   );
 }
